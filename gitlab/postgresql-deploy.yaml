@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgresql
@@ -6,6 +6,9 @@ metadata:
   labels:
     name: postgresql
 spec:
+  selector:
+    matchLabels:
+      name: postgresql
   template:
     metadata:
       name: postgresql

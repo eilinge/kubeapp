@@ -5,6 +5,9 @@ metadata:
   name: jenkins
   namespace: kube-ops
 spec:
+  selector:
+    matchLabels:
+      app: jenkins
   template:
     metadata:
       labels:

@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
@@ -6,6 +6,9 @@ metadata:
   labels:
     name: redis
 spec:
+  selector:
+    matchLabels:
+      name: redis
   template:
     metadata:
       name: redis
@@ -14,7 +17,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: sameersbn/redis
+        image: redis:5.0
         imagePullPolicy: IfNotPresent
         ports:
         - name: redis
